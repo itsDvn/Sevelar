@@ -1,26 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sevelar.co</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sevelar — Landing</title>
+  <style>
+    :root{
+      --bg:#0b0710;
+      --card:#0f0b16;
+      --accent:#8b5cf6; /* purple */
+      --muted:#bfb7d9;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--muted);background:linear-gradient(180deg,#05020a 0%, #111018 100%);}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:40px}
+
+    .card{width:960px;max-width:96%;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:18px;padding:28px;display:flex;gap:28px;box-shadow:0 10px 30px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    /* left icon column */
+    .left{width:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:8px}
+    .avatar{width:140px;height:140px;border-radius:14px;background:linear-gradient(135deg,#221133,#35205a);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:white;box-shadow:0 6px 18px rgba(139,92,246,0.18), inset 0 -4px 12px rgba(0,0,0,0.25)}
+    .small-note{font-size:13px;color:var(--muted);opacity:0.95}
+
+    /* right content */
+    .right{flex:1;display:flex;flex-direction:column;gap:16px}
+    h1{margin:0;color:white;font-size:20px}
+    ul.features{list-style:none;padding:0;margin:0;display:grid;row-gap:8px}
+    ul.features li{background:linear-gradient(90deg,rgba(255,255,255,0.01),transparent);padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);display:flex;align-items:center;gap:12px}
+    ul.features li .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px rgba(139,92,246,0.55)}
+    .note{font-size:14px;color:#cfc6e9;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(139,92,246,0.04),transparent);border:1px solid rgba(139,92,246,0.06)}
+
+    /* buttons */
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(139,92,246,0.18);background:linear-gradient(180deg,rgba(64,0,128,0.08),transparent);cursor:pointer;font-weight:600;color:white;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 6px 20px rgba(139,92,246,0.12);transition:transform .14s ease,box-shadow .14s ease}
+    .btn:active{transform:translateY(2px)}
+    .btn .meta{font-size:12px;opacity:0.9}
+
+    /* purple glow text */
+    .glow{margin-top:18px;padding:16px;border-radius:10px;text-align:center;font-weight:600;letter-spacing:0.6px;color:var(--accent);text-shadow:0 0 18px rgba(139,92,246,0.9)}
+    .copyright{font-size:12px;text-align:center;color:#9c92bc;margin-top:6px}
+
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.8));z-index:120}
+    .modal{background:var(--card);padding:18px;border-radius:12px;max-width:880px;width:92%;box-shadow:0 12px 40px rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.03)}
+    .modal h3{margin:0 0 10px 0;color:white}
+    .modal .close{background:none;border:0;color:var(--muted);cursor:pointer;font-size:14px}
+    .placeholder-img{height:220px;border-radius:8px;border:1px dashed rgba(139,92,246,0.18);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px}
+
+    @media(max-width:720px){.card{flex-direction:column}.left{width:100%;flex-direction:row;gap:12px}.avatar{width:96px;height:96px}}
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="card">
+      <div class="left">
+        <div class="avatar">icon<br>not set</div>
+        <div class="small-note">still don't have</div>
+      </div>
+      <div class="right">
+        <h1>Sevelar — quick facts</h1>
+        <ul class="features">
+          <li><span class="dot"></span>Sevelar the best!</li>
+          <li><span class="dot"></span>Sevelar can do all</li>
+          <li><span class="dot"></span>Sevelar still new</li>
+          <li><span class="dot"></span>Sevelar need alt account</li>
+        </ul>
 
-  <div class="container">
-    <h1>Sevelar.co</h1>
-    <div class="buttons">
-      <a href="#" class="btn">Download</a>
-      <a href="#" class="btn">Features</a>
-      <a href="#" class="btn">Sunc</a>
-      <a href="#" class="btn">Discord</a>
+        <div class="note">My roblox exploit bring feeling of old-school exploiting, when it was all about having fun.</div>
+
+        <div class="btn-row">
+          <a class="btn" id="downloadBtn" href="https://www.mediafire.com/file/ll595vj4mys5v3p/Sevelar+Executor+V2+(remake).zip/file" target="_blank" rel="noopener noreferrer">
+            ⤓ Download <span class="meta">(zip)</span>
+          </a>
+
+          <button class="btn" id="featuresBtn" type="button">⚙️ Features<span class="meta">(preview)</span></button>
+
+          <button class="btn" id="uncBtn" type="button">🔒 Unc's <span class="meta">(click)</span></button>
+
+          <a class="btn" id="discordBtn" href="https://discord.gg/rC55DPt8Tu" target="_blank" rel="noopener noreferrer">💬 Discord<span class="meta">(join)</span></a>
+        </div>
+
+        <div class="glow">Terms-Of-Service ┃ Antivirus-detection ┃ FIXES ┃ VIDEOS ┃ PRIVACY</div>
+        <div class="copyright">© 2025 Sevelar.co</div>
+
+      </div>
     </div>
   </div>
 
-  <section class="section1">Welcome to Sevelar.co</section>
-  <section class="section2">Explore More</section>
+  <!-- modal area -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h3>Features (placeholder)</h3>
+        <button class="close" id="closeModal">✕</button>
+      </div>
+      <div class="placeholder-img" id="featureImage">Put your GUI image here later — paste an image URL or replace this element.</div>
+      <p style="margin-top:12px;color:var(--muted);font-size:13px">Tip: replace the placeholder with your GUI image when ready. You can also edit the HTML and set the <code>src</code> of an &lt;img&gt; here.</p>
+    </div>
+  </div>
 
+  <script>
+    // buttons
+    document.getElementById('featuresBtn').addEventListener('click',function(){
+      document.getElementById('modal').style.display='flex';
+    });
+    document.getElementById('closeModal').addEventListener('click',function(){
+      document.getElementById('modal').style.display='none';
+    });
+    document.getElementById('modal').addEventListener('click',function(e){
+      if(e.target===this) this.style.display='none';
+    });
+
+    document.getElementById('uncBtn').addEventListener('click',function(){
+      // show the "87'unc" text exactly as requested
+      alert("87'unc");
+    });
+  </script>
 </body>
 </html>
