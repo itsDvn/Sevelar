@@ -9,31 +9,22 @@
 body, html {
   height: 100%;
   font-family: 'Orbitron', sans-serif;
-  background: radial-gradient(#0a0a0a, #1a1a1a);
   color: white;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* Stars */
-.stars {
+/* GIF Background */
+body::before {
+  content: "";
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.star {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.5;
-  animation: twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
+  background: url('https://giffiles.alphacoders.com/211/211255.gif') center/cover no-repeat;
+  z-index: -1;
+  filter: brightness(0.5);
 }
 
 /* Container */
@@ -57,7 +48,7 @@ h1 {
     0 0 10px #00ffff,
     0 0 20px #00ffff,
     0 0 40px #00ffff;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   animation: glow 2s infinite alternate;
 }
 
@@ -69,7 +60,7 @@ h1 {
 /* Buttons */
 .buttons {
   display: flex;
-  gap: 30px;
+  gap: 25px;
   flex-wrap: wrap;
 }
 
@@ -85,12 +76,30 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 2px;
   box-shadow: 0 0 10px #00ffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,255,255,0.2);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 200%;
 }
 
 .btn:hover {
   background: #00ffff;
   color: #000;
-  box-shadow: 0 0 20px #00ffff;
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
 }
 
 /* Sections */
@@ -104,5 +113,5 @@ section {
   text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
 }
 
-.section1 { background: #111; }
-.section2 { background: #222; }
+.section1 { background: rgba(0,0,0,0.6); }
+.section2 { background: rgba(0,0,0,0.6); }
