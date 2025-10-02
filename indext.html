@@ -4,62 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sevelar.co</title>
-  <style>
-    /* Reset default styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: radial-gradient(circle at top, #1e1e1e, #000000);
-      font-family: 'Arial', sans-serif;
-      overflow: hidden;
-      color: #ffffff;
-    }
-
-    h1 {
-      font-size: 6vw;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      background: linear-gradient(90deg, #ff4d6d, #6a5cff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 3s infinite alternate;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-
-    /* Optional animated background circles */
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.3;
-      animation: float 20s linear infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0) translateX(0); }
-      100% { transform: translateY(-1000px) translateX(500px); }
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Sevelar.co</h1>
 
-  <!-- Optional animated circles -->
-  <div class="circle" style="width:100px; height:100px; background:#ff4d6d; top:80%; left:20%; animation-duration:25s;"></div>
-  <div class="circle" style="width:150px; height:150px; background:#6a5cff; top:70%; left:70%; animation-duration:30s;"></div>
-  <div class="circle" style="width:80px; height:80px; background:#ffcc00; top:60%; left:40%; animation-duration:35s;"></div>
+  <!-- Animated star background -->
+  <div class="stars"></div>
+
+  <div class="container">
+    <h1>Sevelar.co</h1>
+    <div class="buttons">
+      <a href="https://www.roblox.com" class="btn">Roblox</a>
+      <a href="https://www.ff.garena.com" class="btn">Free Fire</a>
+    </div>
+  </div>
+
+  <section class="section1">Welcome to Sevelar.co</section>
+  <section class="section2">Explore Roblox & Free Fire</section>
+
+  <script>
+    // Generate stars dynamically
+    const starsContainer = document.querySelector('.stars');
+    for(let i=0; i<100; i++){
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.width = Math.random() * 2 + 1 + 'px';
+      star.style.height = star.style.width;
+      star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      starsContainer.appendChild(star);
+    }
+  </script>
+
 </body>
 </html>
